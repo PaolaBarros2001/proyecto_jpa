@@ -1,9 +1,4 @@
 FROM openjdk:17-jdk-slim
-
 WORKDIR /app
-
-COPY out/artifacts/jpa_jar/jpa.jar /app/app_spring.jar
-
-EXPOSE 8083
-
-CMD ["java", "-jar", "app_spring.jar"]
+COPY jpa/target/jpa-0.0.1-SNAPSHOT.jar /app/app_spring.jar
+ENTRYPOINT ["java", "-jar", "/app/app_spring.jar"]
